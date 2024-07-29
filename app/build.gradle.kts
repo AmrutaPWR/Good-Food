@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +48,24 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    implementation ("com.intuit.sdp:sdp-android:1.0.6")
+    implementation ("com.intuit.ssp:ssp-android:1.0.6")
+
+    //gif
+    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+
+//videoModel mvvm
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.8.4")
 }
