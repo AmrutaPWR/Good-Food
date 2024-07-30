@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.GoodFood" parent="Base.Theme.GoodFood" />
+    <item name="bottomSheetDialogTheme" type="style">@style/AppBottomSheetDialogTheme</item>
 </resources>
