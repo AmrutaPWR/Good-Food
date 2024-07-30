@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.goodfood.activities.CategoryMealsActivity
+import com.example.goodfood.activities.MainActivity
 import com.example.goodfood.activities.MealActivity
 import com.example.goodfood.adapter.CategoriesAdapter
 import com.example.goodfood.adapter.MostPopularMealAdapter
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeMvvm = ViewModelProvider(this)[HomeViewModel::class.java]
+        homeMvvm = (activity as MainActivity).viewModel
         popularItemsAdapter = MostPopularMealAdapter()
         categoriesAdapter = CategoriesAdapter()
     }
@@ -80,7 +81,7 @@ class HomeFragment : Fragment() {
     private fun prepareCategoriesRecyclerView() {
         binding.rcvViewCategories.apply {
             layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
-            adapter =categoriesAdapter
+            adapter = categoriesAdapter
         }
     }
 
