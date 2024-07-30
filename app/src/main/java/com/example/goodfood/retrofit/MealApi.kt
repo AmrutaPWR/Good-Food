@@ -1,6 +1,7 @@
 package com.example.goodfood.retrofit
 
 import com.example.goodfood.pojo.CategoryList
+import com.example.goodfood.pojo.MealsByCategoryList
 import com.example.goodfood.pojo.MealList
 import retrofit2.Call
 import retrofit2.http.GET
@@ -17,5 +18,14 @@ interface MealApi {
 
 //    https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
     @GET("filter.php?")
-    fun getPopularItems(@Query("c") categoryName: String): Call<CategoryList>
+    fun getPopularItems(@Query("c") categoryName: String): Call<MealsByCategoryList>
+
+//    https://www.themealdb.com/api/json/v1/1/categories.php
+    @GET("categories.php")
+    fun getCategory(): Call<CategoryList>
+
+    //    https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
+    @GET("filter.php")
+    fun getMealsByCategory(@Query("c") categoryName: String): Call<MealsByCategoryList>
+
 }
