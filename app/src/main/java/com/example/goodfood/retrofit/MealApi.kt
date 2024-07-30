@@ -17,7 +17,7 @@ interface MealApi {
     fun getMealDetails(@Query("i") id: String): Call<MealList>
 
 //    https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
-    @GET("filter.php?")
+    @GET("filter.php")
     fun getPopularItems(@Query("c") categoryName: String): Call<MealsByCategoryList>
 
 //    https://www.themealdb.com/api/json/v1/1/categories.php
@@ -27,5 +27,9 @@ interface MealApi {
     //    https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
     @GET("filter.php")
     fun getMealsByCategory(@Query("c") categoryName: String): Call<MealsByCategoryList>
+
+//    https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+    @GET("search.php")
+    fun searchMeal(@Query("s") mealName :String):Call<MealList>
 
 }

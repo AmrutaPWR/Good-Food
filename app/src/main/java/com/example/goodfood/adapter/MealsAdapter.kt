@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.goodfood.databinding.MealItemBinding
 import com.example.goodfood.pojo.Meal
 
-class FavouritesMealAdapter:RecyclerView.Adapter<FavouritesMealAdapter.FavoritesMealsAdapterViewHolder>() {
+class MealsAdapter:RecyclerView.Adapter<MealsAdapter.FavoritesMealsAdapterViewHolder>() {
 
     lateinit var onItemClick:((Meal) -> Unit)
     inner class FavoritesMealsAdapterViewHolder(val binding :MealItemBinding) :RecyclerView.ViewHolder(binding.root)
