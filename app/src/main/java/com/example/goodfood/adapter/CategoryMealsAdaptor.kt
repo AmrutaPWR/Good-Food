@@ -4,16 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.goodfood.databinding.CategoryItemBinding
 import com.example.goodfood.databinding.MealItemBinding
-import com.example.goodfood.pojo.MealList
 import com.example.goodfood.pojo.MealsByCategory
-import com.example.goodfood.pojo.MealsByCategoryList
 
 class CategoryMealsAdaptor : RecyclerView.Adapter<CategoryMealsAdaptor.CategoryMealsViewModel>() {
 
     private var mealsList = ArrayList<MealsByCategory>()
 
+    lateinit var onItemClick:((MealsByCategory) -> Unit)
     fun setMealsList(mealList: List<MealsByCategory>){
         this.mealsList = mealList as ArrayList<MealsByCategory>
         notifyDataSetChanged()
@@ -32,5 +30,8 @@ class CategoryMealsAdaptor : RecyclerView.Adapter<CategoryMealsAdaptor.CategoryM
     override fun onBindViewHolder(holder: CategoryMealsViewModel, position: Int) {
         Glide.with(holder.itemView).load(mealsList[position].strMealThumb).into(holder.binding.imgMeal)
         holder.binding.tvMealName.text = mealsList[position].strMeal
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke(mealsList[position])
+        }
     }
 }

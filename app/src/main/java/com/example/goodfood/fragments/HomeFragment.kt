@@ -38,8 +38,6 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homeMvvm = (activity as MainActivity).viewModel
-        popularItemsAdapter = MostPopularMealAdapter()
-        categoriesAdapter = CategoriesAdapter()
     }
 
     override fun onCreateView(
@@ -79,6 +77,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun prepareCategoriesRecyclerView() {
+        categoriesAdapter = CategoriesAdapter()
         binding.rcvViewCategories.apply {
             layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
             adapter = categoriesAdapter
@@ -102,6 +101,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun preparePopularItemsRecyclerView() {
+        popularItemsAdapter = MostPopularMealAdapter()
         binding.rcvViewMealsPopular.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = popularItemsAdapter
@@ -134,6 +134,4 @@ class HomeFragment : Fragment() {
             this.randomMeal = meal
         }
     }
-
-
 }

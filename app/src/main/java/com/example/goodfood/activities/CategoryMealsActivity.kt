@@ -1,5 +1,6 @@
 package com.example.goodfood.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -34,6 +35,7 @@ class CategoryMealsActivity : AppCompatActivity() {
             categoryMealsAdaptor.setMealsList(it)
         })
 
+        onCategoryItemClick()
     }
 
     private fun prepareRecyclerView() {
@@ -41,6 +43,16 @@ class CategoryMealsActivity : AppCompatActivity() {
         binding.rcvMeals.apply {
             layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
             adapter = categoryMealsAdaptor
+        }
+    }
+
+    private fun onCategoryItemClick() {
+        categoryMealsAdaptor.onItemClick = { meal ->
+            val intent = Intent(this, MealActivity::class.java)
+            intent.putExtra(HomeFragment.MEAL_ID, meal.idMeal)
+            intent.putExtra(HomeFragment.MEAL_NAME, meal.strMeal)
+            intent.putExtra(HomeFragment.MEAL_THUMB, meal.strMealThumb)
+            startActivity(intent)
         }
     }
 }
